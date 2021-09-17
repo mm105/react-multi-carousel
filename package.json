@@ -108,7 +108,7 @@
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.5",
     "classnames": "^2.2.6",
-    "copyfiles": "^2.1.0",
+    "copyfiles": "^2.4.1",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.10.0",
     "enzyme-to-json": "^3.3.5",
