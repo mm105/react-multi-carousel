@@ -3,6 +3,7 @@ import {
   getWidthFromDeviceType
 } from "./elementWidth";
 import { CarouselInternalState, CarouselProps } from "../types";
+import {populateNextSlides} from './next'
 
 function notEnoughChildren(state: CarouselInternalState): boolean {
   const { slidesToShow, totalItems } = state;
@@ -62,11 +63,17 @@ function getTransformForCenterMode(
   transformPlaceHolder?: number
 ) {
   const transform = transformPlaceHolder || state.transform;
+  const { nextSlides, nextPosition } = populateNextSlides(
+    state,
+    props,
+  );
   if (
     (!props.infinite && state.currentSlide === 0) ||
     notEnoughChildren(state)
   ) {
     return transform;
+  } else if(nextPosition === 0) {
+    return transform + state.itemWidth;
   } else {
     return transform + state.itemWidth / 2;
   }
